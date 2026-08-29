@@ -1,0 +1,7 @@
+packages:
+  - .
+
+# esbuild is the only dependency permitted to run an install script. It is
+# required by tsx for the test runner; all other dependency scripts stay off.
+allowBuilds:
+  esbuild: true

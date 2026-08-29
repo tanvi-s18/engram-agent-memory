@@ -1,0 +1,52 @@
+{
+  "name": "engram-agent-memory",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Local-first persistent memory shared by coding agents through MCP and a CLI.",
+  "license": "MIT",
+  "author": "Engram contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanvi-s18/engram-agent-memory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tanvi-s18/engram-agent-memory/issues"
+  },
+  "homepage": "https://github.com/tanvi-s18/engram-agent-memory#readme",
+  "keywords": [
+    "agent-memory",
+    "coding-agents",
+    "mcp",
+    "model-context-protocol",
+    "sqlite"
+  ],
+  "type": "module",
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/src/server.js",
+    "cli": "tsx src/cli.ts",
+    "hooks:install": "node dist/src/install-hooks.js codex",
+    "hooks:install:all": "node dist/src/install-hooks.js codex claude",
+    "hooks:remove": "node dist/src/install-hooks.js codex claude --remove",
+    "claude-desktop:install": "node dist/src/install-claude-desktop.js",
+    "claude-desktop:remove": "node dist/src/install-claude-desktop.js --remove",
+    "verify": "pnpm check && pnpm test",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/node": "^2.0.0",
+    "@modelcontextprotocol/server": "^2.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
